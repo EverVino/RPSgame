@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Rock, Paper, Scissors</title>
+
+    <style> </style>
+  </head>
+
+  <body>
+      <h1>Play using the console</h1>
+
+     
+</body>
+
+<script>
+    console.log("Saludos");
+
+    function computerPlay(){
+        const lista = ["rock", "paper", "scissor"];
+        let r = Math.round(Math.random()*3);
+        console.log(r);
+        return lista[r];
+    }
+        
+    function selectWinner(p1, p2){
+        switch(p1){
+
+            case "rock": 
+                if(p2 == "paper"){
+                    return 2;
+                }
+                else if(p2 == "rock"){
+                    return 0;
+                }
+                else {
+                    return 1
+                }
+            case "paper": 
+                if(p2 == "scissors"){
+                    return 2;
+                }
+                else if(p2=="paper"){
+                    return 0;
+                }
+                else {
+                    return 1
+                }
+            case "scissors": 
+                if(p2 == "rock"){
+                    return 2;
+                }
+                else if(p2=="scissors"){
+                    return 0;
+                }
+                else {
+                    return 1
+                }
+        }
+
+    }
+
+    function playRound(p1, p2) {
+        p1 = p1.toLowerCase();
+        let winner = selectWinner(p1, p2);
+        
+        switch (winner){
+            case 1: 
+                return `You win, ${p1} beats ${p2}`;
+            case 2: 
+                return `You lose, ${p2} beats ${p1}`;
+            case 0: 
+                return `You both win and lose`;
+        } 
+    }
+
+    const playerSelection = "rock";
+    const computerSelection = computerPlay();
+    console.log("computer "+computerSelection);
+
+    console.log(playRound(playerSelection, computerSelection));
+</script>
+</html>
